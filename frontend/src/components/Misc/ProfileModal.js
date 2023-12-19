@@ -54,7 +54,7 @@ const ProfileModal = ({user,children}) => {
           Authorization : `Bearer ${user.user.token}`
         }
       }
-      const {data} = await axios.put("http://localhost:4000/api/user/update-pic",{url:url},config);
+      const {data} = await axios.put("api/user/update-pic",{url:url},config);
       setUser({...oldUser,...data});
       setNewLoading(false);
       onClose();
