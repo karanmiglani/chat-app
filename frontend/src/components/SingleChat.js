@@ -29,7 +29,7 @@ function SingleChat({ fetChatsAgain, setFetchChatsAgain }) {
     const socketsRef = useRef(null);
     const selectedChatCompareRef = useRef(null);
     const toast = useToast();
-    const ENDPOINT = 'http://localhost:4000'
+    const ENDPOINT = 'https://talk-a-tive-qe97.onrender.com/'
 
     const defaultOptions = {
         loop: true,
@@ -93,7 +93,7 @@ function SingleChat({ fetChatsAgain, setFetchChatsAgain }) {
                     Authorization: `Bearer ${user.token}`,
                 },
             };
-            const { data } = await axios.get(`http://localhost:4000/api/message/get-all-messages/${selectedChat._id}`, config);
+            const { data } = await axios.get(`api/message/get-all-messages/${selectedChat._id}`, config);
             setMessages(data);
             setLoading(false);
             socketsRef.current.emit("join chat",selectedChat._id);
@@ -159,7 +159,7 @@ function SingleChat({ fetChatsAgain, setFetchChatsAgain }) {
                     },
                 };
                 setNewMessage("");
-                const { data } = await axios.post('http://localhost:4000/api/message/new-message', {
+                const { data } = await axios.post('api/message/new-message', {
                     content: newMessage,
                     chatId: selectedChat._id,
                 }, config);
