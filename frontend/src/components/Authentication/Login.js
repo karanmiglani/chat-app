@@ -28,7 +28,7 @@ const Login = () => {
             const config = {
                headers : {"Content-Type" : "application/json" }
             };
-            const result = await axios.post("http://localhost:4000/api/user/login",{email,password},config);
+            const result = await axios.post("api/user/login",{email,password},config);
             toast({
                 title : "Login Successfully!",
                 status : 'success',
