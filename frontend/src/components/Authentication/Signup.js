@@ -83,7 +83,7 @@ const SignUp = () => {
             setLoading(false);
             navigate('/chats')
         }catch(err){
-            
+            console.log(err);
             toast({
                 title : err.response.data.message,
                 status : 'error',
