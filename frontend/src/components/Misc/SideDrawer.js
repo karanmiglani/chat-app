@@ -61,7 +61,7 @@ const SideDrawer = () => {
 
                 headers: { Authorization: `Bearer ${user.user.token}` }
             }
-            const { data } = await axios.get(`http://localhost:4000/api/user/all-users?search=${search}`, config);
+            const { data } = await axios.get(`api/user/all-users?search=${search}`, config);
 
             setLoading(false);
             setSearchResult(data);
@@ -87,7 +87,7 @@ const SideDrawer = () => {
                 headers: { "Content-Type": "application/json", Authorization: `Bearer ${user.user.token}` }
             }
 
-            const { data } = await axios.post(`http://localhost:4000/api/chat`, { userId }, config);
+            const { data } = await axios.post(`api/chat`, { userId }, config);
             
             if (!chats.find((c) => c._id === data._id)) {
                 setChats([data, ...chats]);
